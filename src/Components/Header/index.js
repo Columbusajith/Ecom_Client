@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../../assets/images/logo.jpg";
+import Logo from "../../assets/images/img.png";
 import Button from "@mui/material/Button";
 import CountryDropdown from "../CountryDropdown";
 import { FiUser } from "react-icons/fi";
@@ -28,7 +28,7 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { FaRegUser } from "react-icons/fa6";
 import { CiFilter } from "react-icons/ci";
 import { IoBagCheckOutline } from "react-icons/io5";
-
+import { LogoDev } from "@mui/icons-material";
 
 const Header = () => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -122,8 +122,7 @@ const Header = () => {
           <div className="top-strip bg-blue">
             <div className="container">
               <p className="mb-0 mt-0 text-center">
-                Due to the <b>COVID 19</b> epidemic, orders may be processed
-                with a slight delay
+                Welcome to <b>Zivora</b> – Where Elegance Meets Modern Luxury! ✨
               </p>
             </div>
           </div>
@@ -141,6 +140,11 @@ const Header = () => {
                   <Link to={"/"} className="logo">
                     <img src={Logo} alt="Logo" />
                   </Link>
+
+                  {/* <Link to={"/"} className="d-flex align-items-center logo">
+                    <img src={Logo} alt="logo" />
+                    <span className="ml-2">ECOMMERCE</span>
+                  </Link> */}
 
                   {context.windowWidth < 992 && (
                     <div className="position-relative cartTab">
@@ -326,10 +330,13 @@ const Header = () => {
             </Link>
 
             {context.enableFilterTab === true && (
-              <Button className="circle" onClick={() => {
-                openFilter();
-                setIsOpenSearch(false)
-              }}>
+              <Button
+                className="circle"
+                onClick={() => {
+                  openFilter();
+                  setIsOpenSearch(false);
+                }}
+              >
                 <div className="d-flex align-items-center justify-content-center flex-column">
                   <CiFilter />
                   <span className="title">Filters</span>
@@ -337,14 +344,14 @@ const Header = () => {
               </Button>
             )}
 
-            <Button className="circle" onClick={openSearch }>
+            <Button className="circle" onClick={openSearch}>
               <div className="d-flex align-items-center justify-content-center flex-column">
                 <IoIosSearch />
                 <span className="title">Search</span>
               </div>
             </Button>
 
-            <Link to="/my-list"  onClick={() => setIsOpenSearch(false)}>
+            <Link to="/my-list" onClick={() => setIsOpenSearch(false)}>
               <Button className="circle">
                 <div className="d-flex align-items-center justify-content-center flex-column">
                   <IoMdHeartEmpty />
@@ -353,17 +360,16 @@ const Header = () => {
               </Button>
             </Link>
 
-            <Link to="/orders"  onClick={() => setIsOpenSearch(false)}>
-            <Button className="circle">
-              <div className="d-flex align-items-center justify-content-center flex-column">
-                <IoBagCheckOutline />
-                <span className="title">Orders</span>
-              </div>
-            </Button>
-          </Link>
-            
+            <Link to="/orders" onClick={() => setIsOpenSearch(false)}>
+              <Button className="circle">
+                <div className="d-flex align-items-center justify-content-center flex-column">
+                  <IoBagCheckOutline />
+                  <span className="title">Orders</span>
+                </div>
+              </Button>
+            </Link>
 
-            <Link to="/my-account"  onClick={() => setIsOpenSearch(false)}>
+            <Link to="/my-account" onClick={() => setIsOpenSearch(false)}>
               <Button className="circle">
                 <div className="d-flex align-items-center justify-content-center flex-column">
                   <FaRegUser />
