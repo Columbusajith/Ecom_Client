@@ -56,7 +56,7 @@ const Listing = () => {
     fetchDataFromApi(`${apiEndPoint}`).then((res) => {
       setProductData(res);
       setisLoading(false);
-    });
+    }).catch((err) => {});
 
     context.setEnableFilterTab(true);
   }, [id]);
@@ -87,7 +87,7 @@ const Listing = () => {
       fetchDataFromApi(`${apiEndPoint}`).then((res) => {
         setProductData(res);
         setisLoading(false);
-      });
+      }).catch((err) => {});  
     }
   
 
@@ -206,7 +206,7 @@ const Listing = () => {
     ).then((res) => {
       setProductData(res);
       setisLoading(false);
-    });
+    }).catch((err) => {});
   };
 
   return (

@@ -60,7 +60,7 @@ const SearchBox = (props) => {
           {isLoading === true ? <CircularProgress /> : <IoIosSearch />}
         </Button>
 
-        {searchData?.length > 0 && (
+        {Array.isArray(searchData)&&searchData?.length > 0 && (
           <div className="searchResults res-hide">
             {searchData?.map((item, index) => {
               return (

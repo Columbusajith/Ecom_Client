@@ -36,6 +36,8 @@ const MyList = () => {
         const user = JSON.parse(localStorage.getItem("user"));
         fetchDataFromApi(`/api/my-list?userId=${user?.userId}`).then((res) => {
             setmyListData(res);
+        }).catch((err) => {
+            
         })
 
         
@@ -58,6 +60,9 @@ const MyList = () => {
                 setIsLoading(false);
             })
 
+        }).catch((err) => {
+
+            
         })
     }
 

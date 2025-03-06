@@ -55,32 +55,32 @@ const Home = () => {
     if (location !== null && location !== "" && location !== undefined) {
       fetchDataFromApi(`/api/products/featured?location=${location}`).then(
         (res) => {
-          setFeaturedProducts(res);
+          setFeaturedProducts(res || []);
         }
-      );
+      ).catch((error) => console.log(error));
 
       fetchDataFromApi(
         `/api/products?page=1&perPage=16&location=${location}`
       ).then((res) => {
-        setProductsData(res);
-      });
+        setProductsData(res || []);
+      }).catch((error) => console.log(error));
     }
 
     fetchDataFromApi("/api/homeBanner").then((res) => {
-      setHomeSlides(res);
-    });
+      setHomeSlides(res || []);
+    }).catch((error) => console.log(error));
 
     fetchDataFromApi("/api/banners").then((res) => {
-      setBannerList(res);
-    });
+      setBannerList(res || []);
+    }).catch((error) => console.log(error));
 
     fetchDataFromApi("/api/homeSideBanners").then((res) => {
-      setHomeSideBanners(res);
-    });
+      setHomeSideBanners(res || []);
+    }).catch((error) => console.log(error));
 
     fetchDataFromApi("/api/homeBottomBanners").then((res) => {
-      setHomeBottomBanners(res);
-    });
+      setHomeBottomBanners(res || []);
+    }).catch((error) => console.log(error));
 
     context.setEnableFilterTab(false);
     context.setIsBottomShow(true);
@@ -105,7 +105,7 @@ const Home = () => {
           catName: context.categoryData[randomIndex]?.name,
           catId: context.categoryData[randomIndex]?.id,
           products: res?.products,
-        });
+        }).catch((error) => console.log(error));
       });
     }
   }, [context.categoryData]);
@@ -117,17 +117,17 @@ const Home = () => {
       fetchDataFromApi(
         `/api/products/catName?catName=${selectedCat}&location=${location}`
       ).then((res) => {
-        setFilterData(res.products);
+        setFilterData(res.products || []);
         setIsLoading(false);
         filterSlider?.current?.swiper?.slideTo(0);
         // console.log(selectedCat)
-      });
+      }).catch((error) => console.log(error));
     }
   }, [selectedCat]);
 
   return (
     <>
-      {homeSlides?.length !== 0 ? (
+      {Array.isArray(homeSlides)&&homeSlides?.length !== 0 ? (
         <HomeBanner data={homeSlides} />
       ) : (
         <div className="container mt-3">
@@ -137,7 +137,7 @@ const Home = () => {
         </div>
       )}
 
-      {context.categoryData?.length !== 0 && (
+      {Array.isArray(context.categoryData)&&context.categoryData?.length !== 0 && (
         <HomeCat catData={context.categoryData} />
       )}
 
@@ -146,7 +146,7 @@ const Home = () => {
           <div className="row homeProductsRow">
             <div className="col-md-3">
               <div className="sticky">
-                {homeSideBanners?.length !== 0 &&
+                {Array.isArray(homeSideBanners)&&homeSideBanners?.length !== 0 &&
                   homeSideBanners?.map((item, index) => {
                     return (
                       <div className="banner mb-3" key={index}>
@@ -228,7 +228,7 @@ const Home = () => {
                     modules={[Navigation]}
                     className="mySwiper"
                   >
-                    {filterData?.length !== 0 &&
+                    {Array.isArray(filterData)&&filterData?.length !== 0 &&
                       filterData
                         ?.slice(0)
                         ?.reverse()
@@ -246,7 +246,7 @@ const Home = () => {
                   </Swiper>
                 ) : (
                   <div className="productScroller">
-                    {filterData?.length !== 0 &&
+                    {Array.isArray(filterData)&&filterData?.length !== 0 &&
                       filterData
                         ?.slice(0)
                         ?.reverse()
@@ -266,7 +266,7 @@ const Home = () => {
                 </div>
               </div>
 
-              {productsData?.products?.length === 0 && (
+              {Array.isArray(productsData)&&productsData?.products?.length === 0 && (
                 <div
                   className="d-flex align-items-center justify-content-center"
                   style={{ minHeight: "300px" }}
@@ -276,7 +276,7 @@ const Home = () => {
               )}
 
               <div className="product_row productRow2 w-100 mt-4 d-flex productScroller ml-0 mr-0">
-                {productsData?.products?.length !== 0 &&
+                {Array.isArray(productsData)&&productsData?.products?.length !== 0 &&
                   productsData?.products
                     ?.slice(0)
                     .reverse()
@@ -285,7 +285,7 @@ const Home = () => {
                     })}
               </div>
 
-              {bannerList?.length !== 0 && (
+              {Array.isArray(bannerList)&&bannerList?.length !== 0 && (
                 <Banners data={bannerList} col={3} />
               )}
             </div>
@@ -300,7 +300,7 @@ const Home = () => {
             </div>
           </div>
 
-          {featuredProducts?.length !== 0 && (
+          {Array.isArray(featuredProducts)&&featuredProducts?.length !== 0 && (
             <div className="product_row w-100 mt-2">
               {context.windowWidth > 992 ? (
                 <Swiper
@@ -329,7 +329,7 @@ const Home = () => {
                     },
                   }}
                 >
-                  {featuredProducts?.length !== 0 &&
+                  {Array.isArray(featuredProducts)&&featuredProducts?.length !== 0 &&
                     featuredProducts
                       ?.slice(0)
                       ?.reverse()
@@ -347,7 +347,7 @@ const Home = () => {
                 </Swiper>
               ) : (
                 <div className="productScroller">
-                  {featuredProducts?.length !== 0 &&
+                  {Array.isArray(featuredProducts)&&featuredProducts?.length !== 0 &&
                     featuredProducts
                       ?.slice(0)
                       ?.reverse()
@@ -359,14 +359,14 @@ const Home = () => {
             </div>
           )}
 
-          {bannerList?.length !== 0 && (
+          {Array.isArray(bannerList)&&bannerList?.length !== 0 && (
             <Banners data={homeBottomBanners} col={3} />
           )}
         </div>
       </section>
 
       <div className="container">
-        {randomCatProducts?.length !== 0 &&
+        {Array.isArray(randomCatProducts)&&randomCatProducts?.length !== 0 &&
           randomCatProducts?.products?.length !== 0 && (
             <>
               <div className="d-flex align-items-center mt-1 pr-3">
@@ -387,7 +387,7 @@ const Home = () => {
                 </Link>
               </div>
 
-              {randomCatProducts?.length === 0 ? (
+              {Array.isArray(randomCatProducts)&&randomCatProducts?.length === 0 ? (
                 <div
                   className="d-flex align-items-center justify-content-center"
                   style={{ minHeight: "300px" }}
@@ -423,7 +423,7 @@ const Home = () => {
                         },
                       }}
                     >
-                      {randomCatProducts?.length !== 0 &&
+                      {Array.isArray(randomCatProducts)&&randomCatProducts?.length !== 0 &&
                         randomCatProducts?.products
                           ?.slice(0)
                           ?.reverse()
@@ -441,7 +441,7 @@ const Home = () => {
                     </Swiper>
                   ) : (
                     <div className="productScroller">
-                      {randomCatProducts?.length !== 0 &&
+                      {Array.isArray(randomCatProducts)&&randomCatProducts?.length !== 0 &&
                         randomCatProducts?.products
                           ?.slice(0)
                           ?.reverse()

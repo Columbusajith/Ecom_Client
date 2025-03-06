@@ -108,6 +108,9 @@ const SignIn = () => {
           console.log(error);
           setIsLoading(false);
         }
+      }).catch((err) => {
+        console.log(err);
+    
       });
     }
 
@@ -126,9 +129,13 @@ const SignIn = () => {
               history("/verifyOTP");
               //window.location.href="/signIn";
             }, 2000);
+          }).catch((err) => {
+            
           });
         }
         console.log(res);
+      }).catch((err) => {
+        
       });
     }
   };
@@ -187,6 +194,8 @@ const SignIn = () => {
             console.log(error);
             setIsLoading(false);
           }
+        }).catch((err) => {
+
         });
 
         context.setAlertBox({
@@ -229,7 +238,7 @@ const SignIn = () => {
         if(res.status==="SUCCESS"){
           history("/verifyOTP");
         }
-      })
+      }).catch((err)=>{ });
     }
   }
 

@@ -38,7 +38,7 @@ const Checkout = () => {
             .map((item) => parseInt(item.price) * item.quantity)
             .reduce((total, value) => total + value, 0)
       );
-    });
+    }).catch((err) => {});
   }, []);
 
   const onChangeInput = (e) => {
@@ -193,6 +193,8 @@ const Checkout = () => {
                 history("/orders");
           });
          
+        }).catch((err) => {
+          console.log(err);
         });
       },
 

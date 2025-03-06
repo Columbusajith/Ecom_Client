@@ -59,7 +59,7 @@ const VerifyOTP = () => {
           });
           setIsLoading(false);
         }
-      });
+      }).catch((err) => { });
     } else {
       context.setAlertBox({
         open: true,

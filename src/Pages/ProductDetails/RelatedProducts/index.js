@@ -50,7 +50,7 @@ const RelatedProducts = (props) => {
                 }}
                 >
                     {
-                        props?.data?.length !== 0 && props?.data?.map((item, index) => {
+                       Array.isArray(props?.data)&& props?.data?.length !== 0 && props?.data?.map((item, index) => {
                             return (
                                 <SwiperSlide key={index} >
                                     <ProductItem item={item} itemView={props.itemView} />
@@ -64,7 +64,7 @@ const RelatedProducts = (props) => {
 
                 <div className="productScroller">
                  {
-                        props?.data?.length !== 0 && props?.data?.map((item, index) => {
+                        Array.isArray(props?.data)&&props?.data?.length !== 0 && props?.data?.map((item, index) => {
                             return (
                                     <ProductItem item={item} key={index} itemView={props.itemView} />
                             )
