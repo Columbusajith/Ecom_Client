@@ -44,7 +44,7 @@ const SearchPage = () => {
         window.scrollTo(0, 0);
         setisLoading(true);
         setTimeout(() => {
-            setProductData(context.searchData)
+            setProductData(context.searchData || []);
             setisLoading(false);
         }, 3000);
         
@@ -56,27 +56,27 @@ const SearchPage = () => {
         setisLoading(true);
 
         fetchDataFromApi(`/api/products?subCatId=${subCatId}`).then((res) => {
-            setProductData(res.products);
+            setProductData(res.products ||[]);
             setisLoading(false);
-        })
+        }).catch((err) => {})
     }
 
     const filterByPrice = (price, subCatId) => {
         setisLoading(true);
 
         fetchDataFromApi(`/api/products?minPrice=${price[0]}&maxPrice=${price[1]}&subCatId=${subCatId}`).then((res) => {
-            setProductData(res.products)
+            setProductData(res.products || []);
             setisLoading(false);
-        })
+        }).catch((err) => {})
     }
 
     const filterByRating = (rating, subCatId) => {
 
         setisLoading(true);
         fetchDataFromApi(`/api/products?rating=${rating}&subCatId=${subCatId}`).then((res) => {
-            setProductData(res.products)
+            setProductData(res.products || []);
             setisLoading(false);
-        })
+        }).catch((err) => {})
     }
 
 

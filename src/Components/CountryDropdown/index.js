@@ -30,7 +30,7 @@ const CountryDropdown = () => {
     }
 
     useEffect(() => {
-        setcountryList(context.countryList);
+        setcountryList(context.countryList || []);
     }, [])
 
     const filterList = (e) => {
@@ -40,9 +40,9 @@ const CountryDropdown = () => {
             const list = countryList.filter((item) => {
                 return item.country.toLowerCase().includes(keyword);
             });
-            setcountryList(list);
+            setcountryList(list ||[]);
         } else {
-            setcountryList(context.countryList);
+            setcountryList(context.countryList || []);
         }
     }
 
@@ -74,7 +74,7 @@ const CountryDropdown = () => {
                     <li><Button onClick={() => selectCountry(0, "All")}
                     >All</Button></li>
                     {
-                        countryList?.length !== 0 && countryList?.map((item, index) => {
+                        Array.isArray(countryList)&&countryList?.length !== 0 && countryList?.map((item, index) => {
                      
                             return (
                                 <li key={index}><Button onClick={() => selectCountry(index, item.iso2)}

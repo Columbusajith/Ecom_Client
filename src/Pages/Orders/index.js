@@ -33,8 +33,8 @@ const Orders = () => {
 
         const user = JSON.parse(localStorage.getItem("user"));
         fetchDataFromApi(`/api/orders?userid=${user?.userId}`).then((res) => {
-            setOrders(res);
-        })
+            setOrders(res || []);
+        }).catch((err) => { });
 
         
     context.setEnableFilterTab(false);
@@ -48,7 +48,7 @@ const Orders = () => {
         fetchDataFromApi(`/api/orders/${id}`).then((res) => {
             setIsOpenModal(true);
             setproducts(res.products);
-        })
+        }).catch((err) => { });
     }
 
 
@@ -79,7 +79,7 @@ const Orders = () => {
 
                             <tbody>
                                 {
-                                    orders?.length !== 0 && orders?.map((order, index) => {
+                                    Array.isArray(orders) && orders?.length !== 0 && orders?.map((order, index) => {
                                         return (
                                             <>
                                                 <tr key={index}>
@@ -141,7 +141,7 @@ const Orders = () => {
 
                         <tbody>
                             {
-                                products?.length !== 0 && products?.map((item, index) => {
+                               Array.isArray(products) && products?.length !== 0 && products?.map((item, index) => {
                                     return (
                                         <tr>
                                             <td>{item?.productId}</td>

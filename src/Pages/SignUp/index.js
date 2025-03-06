@@ -168,6 +168,10 @@ const SignUp = () => {
             console.log(error);
             setIsLoading(false);
           }
+        }).catch  ((error) => {
+          setIsLoading(false);
+          console.error("Error posting data:", error);
+          // Handle error (e.g., show an error message)
         });
 
         context.setAlertBox({

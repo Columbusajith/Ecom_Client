@@ -44,7 +44,7 @@ const ProductItem = (props) => {
         }
       }, 20);
     }
-
+ 
     const user = JSON.parse(localStorage.getItem("user"));
 
     fetchDataFromApi(
@@ -53,7 +53,7 @@ const ProductItem = (props) => {
       if (res.length !== 0) {
         setSsAddedToMyList(true);
       }
-    });
+    }).catch((err) => { });
   };
 
   const handleMouseLeave = () => {
@@ -98,7 +98,7 @@ const ProductItem = (props) => {
             if (res.length !== 0) {
               setSsAddedToMyList(true);
             }
-          });
+          }).catch((err) => { });
         } else {
           context.setAlertBox({
             open: true,
@@ -106,7 +106,7 @@ const ProductItem = (props) => {
             msg: res.msg,
           });
         }
-      });
+      }).catch((err) => { });
     } else {
       context.setAlertBox({
         open: true,

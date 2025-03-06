@@ -27,7 +27,7 @@ const HomeBanner = (props) => {
                     className="mySwiper"
                 >
                     {
-                        props?.data?.length !== 0 && props?.data?.map((item, index) => {
+                       Array.isArray(props?.data)&& props?.data?.length !== 0 && props?.data?.map((item, index) => {
                             return (
                                 <SwiperSlide key={index}>
                                     <div className="item">

@@ -75,6 +75,8 @@ const ChangePassword = () => {
           });
           history("/signIn")
         }
+    }).catch((err)=>{
+      console.log(err);
     });
 
   }

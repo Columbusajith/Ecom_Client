@@ -60,12 +60,12 @@ const ProductDetails = () => {
       ).then((res) => {
         const filteredData = res?.products?.filter((item) => item.id !== id);
         setRelatedProductData(filteredData);
-      });
+      }).catch((err) => {});
     });
 
     fetchDataFromApi(`/api/productReviews?productId=${id}`).then((res) => {
-      setreviewsData(res);
-    });
+      setreviewsData(res || []);
+    }).catch((err) => {});
 
     const user = JSON.parse(localStorage.getItem("user"));
 
@@ -75,7 +75,7 @@ const ProductDetails = () => {
       if (res.length !== 0) {
         setSsAddedToMyList(true);
       }
-    });
+    }).catch((err) => {});
 
     
     context.setEnableFilterTab(false);
@@ -128,8 +128,8 @@ const ProductDetails = () => {
 
         fetchDataFromApi(`/api/productReviews?productId=${id}`).then((res) => {
           setreviewsData(res);
-        });
-      });
+        }).catch((err) => {});
+      }).catch((err) => {});
       }else{
       context.setAlertBox({
         open: true,
@@ -207,7 +207,7 @@ const ProductDetails = () => {
             if (res.length !== 0) {
               setSsAddedToMyList(true);
             }
-          });
+          }).catch((err) => { });
         } else {
           context.setAlertBox({
             open: true,
@@ -562,7 +562,7 @@ const ProductDetails = () => {
                       <h3>Customer questions & answers</h3>
                       <br />
 
-                      {reviewsData?.length !== 0 &&
+                      {Array.isArray(reviewsData) && reviewsData?.length !== 0 &&
                         reviewsData
                           ?.slice(0)
                           ?.reverse()

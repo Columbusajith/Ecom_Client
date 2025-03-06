@@ -61,7 +61,7 @@ const Navigation = (props) => {
                 }`}
               >
                 <ul>
-                  {props.navData?.map((item, index) => {
+                  {Array.isArray(props?.navData)&&props.navData?.map((item, index) => {
                     return (
                       <li>
                         <Link to={`/products/category/${item?._id}`}>
@@ -130,7 +130,7 @@ const Navigation = (props) => {
                   //   </Link>
                   // </li>
                 }
-                {props.navData
+                {Array.isArray(props.navData)&&props.navData
                   .filter((item, idx) => idx < 7)
                   .map((item, index) => {
                     return (
