@@ -113,7 +113,7 @@ const MyAccount = () => {
         email: res.email,
         phone: res.phone,
       });
-    });
+    }).catch((err) => {});
 
     
     context.setEnableFilterTab(false);

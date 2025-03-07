@@ -155,7 +155,7 @@ const Header = () => {
                         </Button>
 
                         <span className="count d-flex align-items-center justify-content-center">
-                          {context.cartData?.length > 0
+                          {Array.isArray(context.cartData)&&context.cartData?.length > 0
                             ? context.cartData?.length
                             : 0}
                         </span>
@@ -165,7 +165,7 @@ const Header = () => {
                 </div>
 
                 <div className="col-sm-10 d-flex align-items-center part2">
-                  {context.countryList.length !== 0 &&
+                  {Array.isArray(context.countryList)&&context.countryList.length !== 0 &&
                     context.windowWidth > 992 && <CountryDropdown />}
 
                   <div
@@ -268,7 +268,7 @@ const Header = () => {
                     <div className="ml-auto cartTab d-flex align-items-center">
                       {context.windowWidth > 1000 && (
                         <span className="price">
-                          {(context.cartData?.length !== 0
+                          {(Array.isArray(context.cartData)&&context.cartData?.length !== 0
                             ? context.cartData
                                 ?.map(
                                   (item) => parseInt(item.price) * item.quantity

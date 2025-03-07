@@ -77,7 +77,7 @@ function App() {
     getCountry("https://countriesnow.space/api/v0.1/countries/");
 
     fetchDataFromApi("/api/category").then((res) => {
-      setCategoryData(res.categoryList);
+      setCategoryData(res.categoryList || []);
 
       const subCatArr = [];
 
@@ -91,7 +91,7 @@ function App() {
         });
 
       setsubCategoryData(subCatArr);
-    });
+    }).catch((err) => { });
 
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -116,7 +116,7 @@ function App() {
     const user = JSON.parse(localStorage.getItem("user"));
     fetchDataFromApi(`/api/cart?userId=${user?.userId}`).then((res) => {
       setCartData(res);
-    });
+    }).catch((err) => { });
   };
 
   useEffect(() => {
@@ -137,13 +137,13 @@ function App() {
     fetchDataFromApi(`/api/products/${id}`).then((res) => {
       setProductData(res);
       setisOpenProductModal(status);
-    });
+    }).catch((err) => { });
   };
 
   const getCountry = async (url) => {
     const responsive = await axios.get(url).then((res) => {
       setCountryList(res.data.data);
-    });
+    }).catch((err) => { });
   };
 
   const handleClose = (event, reason) => {

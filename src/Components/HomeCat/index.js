@@ -42,7 +42,7 @@ const HomeCat = (props) => {
 
 
                     {
-                        props.catData?.length !== 0 && props.catData?.map((cat, index) => {
+                        Array.isArray(props?.catData)&&props.catData?.length !== 0 && props.catData?.map((cat, index) => {
                             return (
                                 <SwiperSlide key={index}>
                                     <Link to={`/products/category/${cat._id}`}>

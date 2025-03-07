@@ -40,17 +40,17 @@ const Sidebar = (props) => {
   useEffect(() => {
     setSubCatId(id);
     fetchDataFromApi("/api/homeSideBanners").then((res) => {
-      setHomeSideBanners(res);
-    });
+      setHomeSideBanners(res || []);
+    }).catch(err => console.log(err));
 
     const location = localStorage.getItem("location");
 
     if (location !== null && location !== "" && location !== undefined) {
       fetchDataFromApi(`/api/products/featured?location=${location}`).then(
         (res) => {
-          setFeaturedProducts(res);
+          setFeaturedProducts(res || []);
         }
-      );
+      ).catch(err => console.log(err));
     }
   }, [id]);
 
@@ -101,7 +101,7 @@ const Sidebar = (props) => {
               value={filterSubCat}
               onChange={handleChange}
             >
-              {context?.subCategoryData?.length !== 0 &&
+              {Array.isArray(context?.subCategoryData)&&context?.subCategoryData?.length !== 0 &&
                 context?.subCategoryData?.map((item, index) => {
                   return (
                     <FormControlLabel
@@ -182,7 +182,7 @@ const Sidebar = (props) => {
           </div>
         </div>
 
-        {featuredProducts?.length !== 0 && (
+        {Array.isArray(featuredProducts)&&featuredProducts?.length !== 0 && (
             
           <div className="w-100 res-hide">
             <h6 className="mb-3">FEATURED PRODUCTS</h6>
@@ -194,8 +194,8 @@ const Sidebar = (props) => {
               modules={[Navigation]}
               className="mySwiper"
             >
-              {featuredProducts?.length !== 0 &&
-                featuredProducts
+              {Array.isArray(featuredProducts)&&featuredProducts?.length !== 0 &&
+                Array.isArray(featuredProducts)
                   ?.slice(0)
                   ?.reverse()
                   ?.map((item, index) => {
@@ -214,7 +214,7 @@ const Sidebar = (props) => {
           </div>
         )}
 
-        {homeSideBanners?.length !== 0 &&
+        {Array.isArray(homeSideBanners)&&homeSideBanners?.length !== 0 &&
           homeSideBanners?.map((item, index) => {
             return (
               <div className="banner mb-3" key={index}>

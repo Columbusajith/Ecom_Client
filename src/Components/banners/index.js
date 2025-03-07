@@ -41,7 +41,7 @@ const Banners = (props) => {
               },
             }}
           >
-            {props?.data?.length !== 0 &&
+            {Array.isArray(props?.data)&&props?.data?.length !== 0 &&
               props?.data?.map((item, index) => {
                 return (
                   <SwiperSlide key={index}>
@@ -79,7 +79,7 @@ const Banners = (props) => {
             className="bannerSection pt-3"
             style={{ gridTemplateColumns: `repeat(${props?.col},1fr)` }}
           >
-            {props?.data?.length !== 0 &&
+            {Array.isArray(props?.data)&&props?.data?.length !== 0 &&
               props?.data?.map((item, index) => {
                 return (
                    <div className={`col_`}>

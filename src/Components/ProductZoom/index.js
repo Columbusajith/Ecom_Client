@@ -33,7 +33,7 @@ const ProductZoom = (props) => {
                     ref={zoomSliderBig}
                 >
                     {
-                        props?.images?.map((img, index) => {
+                        Array.isArray(props?.images)&&props?.images?.map((img, index) => {
                             return (
                                 <SwiperSlide key={index}>
                                     <div className='item'>
@@ -62,7 +62,7 @@ const ProductZoom = (props) => {
                 ref={zoomSlider}
             >
             {
-                props?.images?.map((img, index) => {
+                Array.isArray(props?.images)&&props?.images?.map((img, index) => {
                     return (
                         <SwiperSlide>
                         <div className={`item ${slideIndex === index && 'item_active'}`} key={index}>

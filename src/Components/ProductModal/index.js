@@ -36,7 +36,7 @@ const ProductModal = (props) => {
             if (res.length !== 0) {
                 setSsAddedToMyList(true);
             }
-        })
+        }).catch((err) => { });
 
     }, [])
 
@@ -120,7 +120,7 @@ const ProductModal = (props) => {
                         open: true,
                         error: false,
                         msg: "the product added in my list"
-                    })
+                    }).catch((err) => { });
                 } else {
                     context.setAlertBox({
                         open: true,
@@ -129,7 +129,7 @@ const ProductModal = (props) => {
                     })
                 }
 
-            })
+            }).catch((err) => { });
         } else {
             context.setAlertBox({
                 open: true,
@@ -177,7 +177,7 @@ const ProductModal = (props) => {
 
 
                         {
-                            props?.data?.productRam?.length !== 0 &&
+                          Array.isArray(props?.data?.productRam)&&  props?.data?.productRam?.length !== 0 &&
                             <div className='productSize d-flex align-items-center'>
                                 <span>RAM:</span>
                                 <ul className={`list list-inline mb-0 pl-4 ${tabError === true && 'error'}`}>
@@ -195,7 +195,7 @@ const ProductModal = (props) => {
 
 
                         {
-                            props?.data?.size?.length !== 0 &&
+                           Array.isArray(props?.data?.size)&& props?.data?.size?.length !== 0 &&
                             <div className='productSize d-flex align-items-center'>
                                 <span>Size:</span>
                                 <ul className={`list list-inline mb-0 pl-4 ${tabError === true && 'error'}`}>
@@ -213,7 +213,7 @@ const ProductModal = (props) => {
 
 
                         {
-                            props?.data?.productWeight?.length !== 0 &&
+                            Array.isArray(props?.data?.productWeight)&&props?.data?.productWeight?.length !== 0 &&
                             <div className='productSize d-flex align-items-center'>
                                 <span>Weight:</span>
                                 <ul className={`list list-inline mb-0 pl-4 ${tabError === true && 'error'}`}>

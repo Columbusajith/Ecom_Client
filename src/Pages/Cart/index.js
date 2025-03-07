@@ -40,7 +40,7 @@ const Cart = () => {
 
         const user = JSON.parse(localStorage.getItem("user"));
         fetchDataFromApi(`/api/cart?userId=${user?.userId}`).then((res) => {
-            setCartData(res);
+            setCartData(res || []);
             setselectedQuantity(res?.quantity)
         })
     }, []);
@@ -75,7 +75,7 @@ const Cart = () => {
                         setCartData(res);
                     })
                 }, 1000)
-            })
+            }).catch((err) => { })
         }
 
     }
@@ -94,10 +94,13 @@ const Cart = () => {
             fetchDataFromApi(`/api/cart?userId=${user?.userId}`).then((res) => {
                 setCartData(res);
                 setIsLoading(false);
+            }).catch((err) => {
+                console.log(err);
             })
 
             context.getCartData();
 
+        }).catch((err) => {
         })
     }
 
