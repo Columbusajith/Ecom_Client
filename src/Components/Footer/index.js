@@ -18,7 +18,6 @@ const Footer = () => {
 
   return (
     <>
-      
       <section className="newsLetterSection mt-3 mb-3 d-flex align-items-center">
         <div className="container">
           <div className="row">
@@ -79,25 +78,25 @@ const Footer = () => {
 
           <div className="row mt-5 linksWrap">
             <div className="col">
-              <h5>FRUIT & VEGETABLES</h5>
+              <h5>Women's Wear</h5>
               <ul>
                 <li>
-                  <Link to="#">Fresh Vegetables</Link>
+                  <Link to="#">Sarees</Link>
                 </li>
                 <li>
-                  <Link to="#">Herbs & Seasonings</Link>
+                  <Link to="#">Nighties</Link>
                 </li>
                 <li>
-                  <Link to="#">Fresh Fruits</Link>
+                  <Link to="#">Lrghana</Link>
                 </li>
                 <li>
-                  <Link to="#">Cuts & Sprouts</Link>
+                  <Link to="#">Jeans Pants</Link>
                 </li>
                 <li>
-                  <Link to="#">Exotic Fruits & Veggies</Link>
+                  <Link to="#">Trousers</Link>
                 </li>
                 <li>
-                  <Link to="#">Packaged Produce</Link>
+                  <Link to="#">Party wear</Link>
                 </li>
                 <li>
                   <Link to="#">Party Trays</Link>
@@ -106,116 +105,117 @@ const Footer = () => {
             </div>
 
             <div className="col">
-              <h5>BREAKFAST & DAIRY</h5>
+              <h5>Foot wears</h5>
               <ul>
                 <li>
-                  <Link to="#">Fresh Vegetables</Link>
+                  <Link to="#">Sneakers</Link>
                 </li>
                 <li>
-                  <Link to="#">Herbs & Seasonings</Link>
+                  <Link to="#">Shoe Accessories</Link>
                 </li>
                 <li>
-                  <Link to="#">Fresh Fruits</Link>
+                  <Link to="#">Sandals</Link>
                 </li>
                 <li>
-                  <Link to="#">Cuts & Sprouts</Link>
+                  <Link to="#">Running shoe</Link>
                 </li>
                 <li>
-                  <Link to="#">Exotic Fruits & Veggies</Link>
+                  <Link to="#">Casual shoe</Link>
                 </li>
                 <li>
-                  <Link to="#">Packaged Produce</Link>
+                  <Link to="#">Party shoes</Link>
                 </li>
                 <li>
-                  <Link to="#">Party Trays</Link>
+                  <Link to="#">branded shoes</Link>
                 </li>
               </ul>
             </div>
 
             <div className="col">
-              <h5>MEAT & SEAFOOD</h5>
+              <h5>Womens Clothing</h5>
               <ul>
                 <li>
-                  <Link to="#">Fresh Vegetables</Link>
+                  <Link to="#">Classic</Link>
                 </li>
                 <li>
-                  <Link to="#">Herbs & Seasonings</Link>
+                  <Link to="#">Folkloric</Link>
                 </li>
                 <li>
-                  <Link to="#">Fresh Fruits</Link>
+                  <Link to="#">Business</Link>
                 </li>
                 <li>
-                  <Link to="#">Cuts & Sprouts</Link>
+                  <Link to="#">Casual</Link>
                 </li>
                 <li>
-                  <Link to="#">Exotic Fruits & Veggies</Link>
+                  <Link to="#">Elegant</Link>
                 </li>
                 <li>
-                  <Link to="#">Packaged Produce</Link>
+                  <Link to="#">Formal </Link>
                 </li>
                 <li>
-                  <Link to="#">Party Trays</Link>
+                  <Link to="#">Party</Link>
                 </li>
               </ul>
             </div>
 
             <div className="col">
-              <h5>BEVERAGES</h5>
+              <h5>Popular Styles</h5>
               <ul>
                 <li>
-                  <Link to="#">Fresh Vegetables</Link>
+                  <Link to="#">Culotte dress</Link>
                 </li>
                 <li>
-                  <Link to="#">Herbs & Seasonings</Link>
+                  <Link to="#">Babydoll dress</Link>
                 </li>
                 <li>
-                  <Link to="#">Fresh Fruits</Link>
+                  <Link to="#"> Wrap around dress</Link>
                 </li>
                 <li>
-                  <Link to="#">Cuts & Sprouts</Link>
+                  <Link to="#">Bubble dress</Link>
                 </li>
                 <li>
-                  <Link to="#">Exotic Fruits & Veggies</Link>
+                  <Link to="#">Polo dress</Link>
                 </li>
                 <li>
-                  <Link to="#">Packaged Produce</Link>
+                  <Link to="#">Tutu dress</Link>
                 </li>
                 <li>
-                  <Link to="#">Party Trays</Link>
+                  <Link to="#">Shirtdress</Link>
                 </li>
               </ul>
             </div>
 
             <div className="col">
-              <h5>BREADS & BAKERY</h5>
+              <h5>Womens Categoty </h5>
               <ul>
                 <li>
-                  <Link to="#">Fresh Vegetables</Link>
+                  <Link to="#">Sundress</Link>
                 </li>
                 <li>
-                  <Link to="#">Herbs & Seasonings</Link>
+                  <Link to="#">  Sack dress
+                  </Link>
                 </li>
                 <li>
-                  <Link to="#">Fresh Fruits</Link>
+                  <Link to="#">Tunic dress</Link>
                 </li>
                 <li>
-                  <Link to="#">Cuts & Sprouts</Link>
+                  <Link to="#">Sheath dress</Link>
                 </li>
                 <li>
-                  <Link to="#">Exotic Fruits & Veggies</Link>
+                  <Link to="#">Shift dress</Link>
                 </li>
                 <li>
-                  <Link to="#">Packaged Produce</Link>
+                  <Link to="#">Trumpet dress</Link>
                 </li>
                 <li>
-                  <Link to="#">Party Trays</Link>
+                  <Link to="#"> Smoked/layered dress</Link>
                 </li>
               </ul>
             </div>
           </div>
 
           <div className="copyright mt-3 pt-3 pb-3 d-flex">
-            <p className="mb-0">Copyright 2024. All rights reserved</p>
+            <p className="mb-0">© Copyright 2025. All rights reserved</p>
             <ul className="list list-inline ml-auto mb-0 socials">
               <li className="list-inline-item">
                 <Link to="#">

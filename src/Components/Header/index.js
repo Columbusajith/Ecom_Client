@@ -122,7 +122,8 @@ const Header = () => {
           <div className="top-strip bg-blue">
             <div className="container">
               <p className="mb-0 mt-0 text-center">
-                Welcome to <b>Zivora</b> – Where Elegance Meets Modern Luxury! ✨
+                Welcome to <b>Zivora</b> – Where Elegance Meets Modern Luxury!
+                ✨
               </p>
             </div>
           </div>
