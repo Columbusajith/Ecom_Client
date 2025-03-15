@@ -66,7 +66,7 @@ const Listing = () => {
   };
   const handleClose = (val) => {
     if(val!=="" && val!==undefined && val!==null){
-      setPage(val)
+      setPage(val || 10);
       setAnchorEl(null);
   
       let url = window.location.href;
@@ -281,11 +281,16 @@ const Listing = () => {
                       .reverse()
                       .map((item, index) => {
                         return (
+                          <div 
+                          key={index}
+                          onClick={() => window.open(`/product/${item.id}`, '_blank', 'noopener,noreferrer')}
+                          style={{ cursor: 'pointer', display: 'contents' }}
+                        >
                           <ProductItem
-                            key={index}
                             itemView={productView}
                             item={item}
                           />
+                        </div>
                         );
                       })}
                   </>
