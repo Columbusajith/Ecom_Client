@@ -195,12 +195,12 @@ const Sidebar = (props) => {
               className="mySwiper"
             >
               {Array.isArray(featuredProducts)&&featuredProducts?.length !== 0 &&
-                Array.isArray(featuredProducts)
+                featuredProducts
                   ?.slice(0)
                   ?.reverse()
                   ?.map((item, index) => {
                     return (
-                      <SwiperSlide key={index}>
+                      <SwiperSlide key={index} onClick={() => window.open(`/product/${item.id}`, '_blank', 'noopener,noreferrer')}>
                         <ProductItem item={item} />
                       </SwiperSlide>
                     );

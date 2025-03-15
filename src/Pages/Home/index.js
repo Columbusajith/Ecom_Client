@@ -105,8 +105,8 @@ const Home = () => {
           catName: context.categoryData[randomIndex]?.name,
           catId: context.categoryData[randomIndex]?.id,
           products: res?.products,
-        }).catch((error) => console.log(error));
-      });
+        })
+      }).catch((error) => console.log(error));
     }
   }, [context.categoryData]);
 
@@ -348,7 +348,7 @@ const Home = () => {
               ) : (
                 <div className="productScroller">
                   {Array.isArray(featuredProducts)&&featuredProducts?.length !== 0 &&
-                    featuredProducts
+                   featuredProducts
                       ?.slice(0)
                       ?.reverse()
                       ?.map((item, index) => {
