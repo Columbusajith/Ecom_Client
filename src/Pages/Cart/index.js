@@ -135,7 +135,7 @@ const Cart = () => {
                                                         return (
                                                             <tr>
                                                                 <td width="35%">
-                                                                    <Link to={`/product/${item?.productId}`}>
+                                                                    <div to={`/product/${item?.productId}`}  onClick={() => window.open(`/product/${item.productId}`, '_blank', 'noopener,noreferrer')}>
                                                                         <div className="d-flex align-items-center cartItemimgWrapper">
                                                                             <div className="imgWrapper">
                                                                                 <img src={item?.image}
@@ -151,7 +151,7 @@ const Cart = () => {
                                                                             </div>
 
                                                                         </div>
-                                                                    </Link>
+                                                                    </div>
                                                                 </td>
                                                                 <td width="15%">Rs {item?.price}</td>
                                                                 <td width="25%">
