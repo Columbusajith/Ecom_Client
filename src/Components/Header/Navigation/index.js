@@ -43,6 +43,7 @@ const Navigation = (props) => {
           <div className="col-sm-2 navPart1 ">
             <div className="catWrapper">
               <Button
+               style={{backgroundColor:"#667058"}}
                 className="allCatTab align-items-center res-hide"
                 onClick={() => setisopenSidebarVal(!isopenSidebarVal)}
               >

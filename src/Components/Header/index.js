@@ -119,7 +119,7 @@ const Header = () => {
 
       <div className="headerWrapperFixed" ref={headerRef}>
         <div className="headerWrapper">
-          <div className="top-strip bg-blue">
+          <div className="top-strip" style={{backgroundColor:"#667058"}}>
             <div className="container">
               <p className="mb-0 mt-0 text-center">
                 Welcome to <b>Zivora</b> – Where Elegance Meets Modern Luxury!
